@@ -15,7 +15,7 @@ function Get-CountdownToBeer
         Write-Output "Countdown til øl! - $(($Timeleft).Minutes):$(($Timeleft).Seconds)"
     } until ($Timeleft.Seconds -eq "0" -and $Timeleft.Minutes -eq "0")
     Write-Output "Nutid, Datid, ØlTid, Altid!"
-    if ($Speak) {Add-Type -AssemblyName System.speech; $Speech = New-Object System.Speech.Synthesis.SpeechSynthesizer; $Speech.Speak("Beer time!!!"); Sleep -Seconds 2; $Speech.Speak("Beer time!!!"); Sleep -Seconds 2; $Speech.Speak("Beer time!!!")}
+    if ($Speak) {Add-Type -AssemblyName System.speech; $Speech = New-Object System.Speech.Synthesis.SpeechSynthesizer; $Speech.Speak("Beer time!!!"); Sleep -Seconds 1; $Speech.Speak("Beer time!!!"); Sleep -Seconds 1; $Speech.Speak("Beer time!!!")}
     Invoke-Beer -Path ".\beer.png"
 }
 Function Invoke-Beer
