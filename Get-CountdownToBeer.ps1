@@ -69,7 +69,7 @@ function Get-CountdownToBeer
 
         Write-Output "Nutid, Datid, ØlTid, Altid!"
 
-        if ($Sound) {Invoke-Speech}
+        if ($Speech) {Invoke-Speech}
         if ($Ascii) {Invoke-Ascii}
     }
 }
