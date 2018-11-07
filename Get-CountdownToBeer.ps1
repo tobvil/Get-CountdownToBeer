@@ -1,10 +1,10 @@
 function Get-CountdownToBeer
 {
     param (
-        [Parameter(Mandatory = $True)] $BeerOClock,
+        [Parameter(Mandatory = $False)] $BeerOClock,
         [Parameter(Mandatory = $False)] [Switch]$Speech,
         [Parameter(Mandatory = $False)] [Switch]$Ascii,
-        [Parameter(Mandatory = $False)] [Switch]$Now   
+        [Parameter(Mandatory = $False)] [Switch]$Now
     )
         function Invoke-Speech
         {
@@ -37,8 +37,8 @@ function Get-CountdownToBeer
                 {
                     $Pixel = $BitMap.GetPixel($X, $Y)
                     $BackGround = $Colors.Item((Get-ClosestConsoleColor $Pixel.name))
-    
-    
+
+
                     If ($ToASCII)
                     {
                         Write-Host "$([Char](Get-Random -Maximum 126 -Minimum 33))" -NoNewline -ForegroundColor $BackGround
@@ -66,9 +66,9 @@ function Get-CountdownToBeer
             Clear-Host
             Write-Output "Countdown til øl! - $(($Timeleft).Minutes):$(($Timeleft).Seconds)"
         } until ($Timeleft.Seconds -eq "0" -and $Timeleft.Minutes -eq "0")
-    
+
         Write-Output "Nutid, Datid, ØlTid, Altid!"
-    
+
         if ($Sound) {Invoke-Speech}
         if ($Ascii) {Invoke-Ascii}
     }
